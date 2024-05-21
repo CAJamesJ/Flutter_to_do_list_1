@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized(); /* This fixed expecting binder but got null error */
   runApp(MyApp());
 }
 
