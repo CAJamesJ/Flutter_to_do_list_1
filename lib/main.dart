@@ -1,37 +1,27 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:to_do_list_1/pages/first_page.dart';
+import 'package:to_do_list_1/pages/second_page.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized(); /* This fixed expecting binder but got null error */
+  // WidgetsFlutterBinding.ensureInitialized(); /* This fixed expecting binder but got null error */
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
-  // funcitons & methods
-  void userTapped() {
-    print("User tapped!");
-  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp( /* const is ignored in this project */
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: GestureDetector(
-            onTap: userTapped,
-            child: Container(
-              height: 200,
-              width: 200,
-              color: Colors.deepPurple[200],
-              child: Center(child: Text("Tap me !"),)
-            ),
-          ),
-        ),
-      ),
+      home: FirstPage(), /*Used to be our Scaffold, but we can direct to the first page now */
+      routes: { /*This routes allow us to not having Navigator.push(); function in pages */
+        '/firstpage' : (context) => FirstPage(),
+        '/secondpage' :(context) => SecondPage()
+      },
     );
   }
 }
