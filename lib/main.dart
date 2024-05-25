@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'pages/todo_page.dart';
+import 'package:to_do_list_1/pages/home_page.dart';
 
 
 void main() {
-  // WidgetsFlutterBinding.ensureInitialized(); /* This fixed expecting binder but got null error */
   runApp(const MyApp());
 }
 
@@ -14,7 +13,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ToDoPage(),
+      home: HomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.purple, //maybe change?
+        appBarTheme: AppBarTheme(color: Colors.yellow),
+      ),
     );
   }
 }
